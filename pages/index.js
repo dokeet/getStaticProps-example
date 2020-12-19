@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import fetch from "isomorphic-fetch"
 import styles from '../styles/Home.module.css'
 
 export default function Home({data, time}) {
@@ -10,7 +9,6 @@ export default function Home({data, time}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>server: {time}</h1>
-      {/* {JSON.stringify(data, null, 2)} */}
      <h2>client: {`${new Date().getMinutes()}:${new Date().getSeconds()}`}</h2>
      <h3>revalidate: 10</h3>
     </div>
@@ -18,9 +16,6 @@ export default function Home({data, time}) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:3031/posts')
-  const data = await res.json()
-
   
   return {
     props: {
