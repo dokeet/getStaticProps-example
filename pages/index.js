@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home({data, time}) {
+export default function Home({time}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +19,6 @@ export async function getStaticProps() {
   
   return {
     props: {
-      data,
       time: `${new Date().getMinutes()}:${new Date().getSeconds()}`
     },
     revalidate: 10
